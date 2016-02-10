@@ -1,15 +1,15 @@
 
 <?php 
 require 'lib/aws.phar';
-use Aws\Common\Aws;
+use Aws\DynamoDb\DynamoDbClient;
 
+$client = DynamoDbClient::factory(array(
+    'profile' => 'guest1',
+    'region'  => '<region name>'
+));
 
-// Create a service builder using a configuration file
-$aws = Aws::factory('config/hw_config.php');
-
-// Get the client from the builder by namespace
-$client = $aws->get('DynamoDb');
-
+// Create an "errors" table
+echo "creating table..." . "\n";
 
 
 ?>

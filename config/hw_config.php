@@ -1,7 +1,7 @@
 <?php return array(
     'includes' => array('_aws'),
     'services' => array(
-        'foo.dynamodb' => array(
+        'my.dynamodb' => array(
             'extends' => 'dynamodb',
             'params'  => array(
                 'profile' => 'guest1',
