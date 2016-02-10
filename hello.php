@@ -5,6 +5,8 @@
         <title><?php echo "Hellow World"; ?></title>
     </head>
     <body>
-        
+        <?php
+phpinfo();
+?>
     </body>
 </html>
