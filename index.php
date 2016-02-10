@@ -5,7 +5,7 @@ use Aws\Common\Aws;
 
 
 // Create a service builder using a configuration file
-$aws = Aws::factory('config/hw_config.json');
+$aws = Aws::factory('config/hw_config.php');
 
 // Get the client from the builder by namespace
 $client = $aws->get('DynamoDb');
