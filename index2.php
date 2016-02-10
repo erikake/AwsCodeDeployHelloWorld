@@ -5,11 +5,10 @@ use Aws\DynamoDb\DynamoDbClient;
 
 $client = DynamoDbClient::factory(array(
     'profile' => 'guest1',
-    'region'  => '<region name>'
+    'region'  => 'eu-central-1'
 ));
 
-// Create an "errors" table
-echo "creating table..." . "\n";
+
 
 
 ?>
