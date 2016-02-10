@@ -8,7 +8,7 @@ use Aws\Common\Aws;
 $aws = Aws::factory('config/hw_config.php');
 
 // Get the client from the builder by namespace
-$client = $aws->get('DynamoDb');
+$client = $aws->get('my.dynamodb');
 
 // Create an "errors" table
 echo "creating table..." . "\n";
