@@ -11,7 +11,7 @@ $aws = Aws::factory('config/hw_config.php');
 $client = $aws->get('my.dynamodb');
 
 
-$response = $dynamodb->describe_table(array('TableName' => 'errors'));
+$response = $client->describe_table(array('TableName' => 'errors'));
 if((integer) $response->status !== 400)
 {
     // Create an "errors" table
