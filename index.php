@@ -23,7 +23,7 @@ $result = $client->putItem(array(
     'TableName' => 'errors',
     'Item' => array(
         'id'      => array('N' => '1201'),
-        'time'    => array('N' => 123456),
+        'time'    => array('N' => '123456'),
         'error'   => array('S' => 'Executive overflow'),
         'message' => array('S' => 'no vacant areas')
     )

@@ -8,11 +8,7 @@ $client = DynamoDbClient::factory(array(
     'region'  => 'eu-central-1'
 ));
 
-
-$response = $client->describeTable(array('TableName' => 'errors'));
-if((integer) $response->status !== 400)
-{
-    // Create an "errors" table
+// Create an "errors" table
 echo "creating table..." . "\n";
 $client->createTable(array(
     'TableName' => 'errors',
@@ -41,7 +37,7 @@ $client->createTable(array(
         'WriteCapacityUnits' => 20
     )
 ));
-}
+
 
 // Wait until the table is created and active
 echo "Waiting for table creation..." . "\n";
@@ -89,16 +85,6 @@ foreach ($scan as $item) {
         )
     ));
 }
-echo "deleting table..." . "\n";
-$client->deleteTable(array(
-    'TableName' => 'errors'
-));
-
-$client->waitUntil('TableNotExists', array(
-    'TableName' => 'errors'
-));
-echo "table deleted." . "\n";
-
 
 
 ?>
