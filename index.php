@@ -34,7 +34,7 @@ $result = $client->getItem(array(
     'TableName' => 'errors',
     'Key'       => array(
         'id'   => array('N' => '1201'),
-        'time' => array('N' => $time)
+        'time' => array('N' => '123456')
     )
 ));
 
