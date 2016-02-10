@@ -10,7 +10,11 @@ $aws = Aws::factory('config/hw_config.php');
 // Get the client from the builder by namespace
 $client = $aws->get('my.dynamodb');
 
-// Create an "errors" table
+
+$response = $dynamodb->describe_table(array('TableName' => 'errors'));
+if((integer) $response->status !== 400)
+{
+    // Create an "errors" table
 echo "creating table..." . "\n";
 $client->createTable(array(
     'TableName' => 'errors',
@@ -39,6 +43,7 @@ $client->createTable(array(
         'WriteCapacityUnits' => 20
     )
 ));
+}
 
 // Wait until the table is created and active
 echo "Waiting for table creation..." . "\n";
