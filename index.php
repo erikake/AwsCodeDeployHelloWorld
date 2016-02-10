@@ -11,39 +11,6 @@ $aws = Aws::factory('config/hw_config.php');
 $client = $aws->get('my.dynamodb');
 
 
-$response = $client->describe_table(array('TableName' => 'errors'));
-if((integer) $response->status !== 400)
-{
-    // Create an "errors" table
-echo "creating table..." . "\n";
-$client->createTable(array(
-    'TableName' => 'errors',
-    'AttributeDefinitions' => array(
-        array(
-            'AttributeName' => 'id',
-            'AttributeType' => 'N'
-        ),
-        array(
-            'AttributeName' => 'time',
-            'AttributeType' => 'N'
-        )
-    ),
-    'KeySchema' => array(
-        array(
-            'AttributeName' => 'id',
-            'KeyType'       => 'HASH'
-        ),
-        array(
-            'AttributeName' => 'time',
-            'KeyType'       => 'RANGE'
-        )
-    ),
-    'ProvisionedThroughput' => array(
-        'ReadCapacityUnits'  => 10,
-        'WriteCapacityUnits' => 20
-    )
-));
-}
 
 // Wait until the table is created and active
 echo "Waiting for table creation..." . "\n";

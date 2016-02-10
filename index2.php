@@ -9,7 +9,7 @@ $client = DynamoDbClient::factory(array(
 ));
 
 
-$response = $client->describe_table(array('TableName' => 'errors'));
+$response = $client->describeTable(array('TableName' => 'errors'));
 if((integer) $response->status !== 400)
 {
     // Create an "errors" table
